@@ -71,11 +71,14 @@ export const AllBlogs = () => {
 	})
 };
 
-export const UserBlogs = () => {
+export const UserBlogs = (user) => {
 	return new axios({
 		url: baseUrl + '/blog/user/',
 		method: GET,
-		withCredentials: true
+		withCredentials: true,
+		headers: {
+			'End-User': user
+		}
 	})
 };
 
@@ -185,6 +188,6 @@ export const Rank = () => {
 	return new axios({
 		url: baseUrl + '/rank/',
 		method: GET,
-		withCredentials: true
+		withCredentials: true,
 	})
 };

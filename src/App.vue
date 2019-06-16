@@ -144,53 +144,17 @@
 		},
 		data() {
 			return {
-				blogs: [{
-						author: 'Han Solo',
-						content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-						datetime: "",
-						title: "一个很有风格的标题",
-						blogid: "1",
-						date: "",
-						comment_num: 100
-					},
-					{
-						author: 'Han Solo',
-						content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-						datetime: "",
-						title: "非常吸引人的一个标题",
-						blogid: "2",
-						date: "",
-						comment_num: 100
-					},
+				blogs: [
 				],
-				userBlogs: [{
-						author: 'Han Solo',
-						content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-						datetime: moment().subtract(1, 'days'),
-						title: "一个很有风格的标题"
-					},
-					{
-						author: 'Han Solo',
-						content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-						datetime: moment().subtract(2, 'days'),
-						title: "非常吸引人的一个标题",
-					},
+				userBlogs: [
 				],
 				moment,
-				rank: [{
-						rank: 1,
-						title: "一个很有风格的标题"
-					},
-					{
-						rank: 2,
-						title: "非常吸引人的一个标题"
-					}
+				rank: [
 				],
 				// 状态参数
 				isLogin: false,
 				userOnline: "lintean",
 				isHome: true,
-				queryStatus: 0,
 				loginData: {
 					visible: false,
 					user: "",
@@ -374,7 +338,6 @@
 			},
 			reset() {
 				// 初始化（3个查询）
-				this.queryStatus = 0;
 				this.queryAllBlogs();
 				this.queryUserBlogs();
 				this.queryRank();
@@ -408,8 +371,10 @@
 				});
 			},
 			queryUserBlogs() {
+				if (!this.isLogin) return;
+				
 				var _this = this;
-				Api.UserBlogs().then(
+				Api.UserBlogs(this.userOnline).then(
 					res => {
 						if (res.data.code === 0) {
 							_this.userBlogs = res.data.data.data;
