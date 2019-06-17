@@ -230,11 +230,12 @@
 					} else {
 						_this.isLogin = false;
 					}
+					
+					_this.reset();
 
 				}).catch(err => {
 				console.log(err)
 			});
-			this.reset();
 		},
 		methods: {
 			menuClick(event) {
@@ -251,6 +252,7 @@
 						if (res.data.code === 0) {
 							_this.userOnline = this.loginData.user;
 							_this.isLogin = true;
+							_this.reset();
 
 							this.loginData.visible = false;
 						}
@@ -265,6 +267,7 @@
 						if (res.data.code === 0) {
 							_this.userOnline = this.registerData.user;
 							_this.isLogin = true;
+							_this.reset();
 
 							this.registerData.visible = false;
 						}
