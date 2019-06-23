@@ -76,7 +76,7 @@
 											alert(res.data.msg);
 										}
 									}).catch(err => {
-									console.log(err)
+									alert("retry");
 								});
 							}
 							break;

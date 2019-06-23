@@ -234,7 +234,7 @@
 					_this.reset();
 
 				}).catch(err => {
-				console.log(err)
+				alert("retry");
 			});
 		},
 		methods: {
@@ -259,7 +259,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 			register() {
@@ -276,7 +276,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 			logout() {
@@ -290,7 +290,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 			blog() {
@@ -306,7 +306,7 @@
 								alert(res.data.msg);
 							}
 						}).catch(err => {
-						console.log(err)
+						alert("retry");
 					});
 				} else {
 					// 修改博客
@@ -320,7 +320,7 @@
 								alert(res.data.msg);
 							}
 						}).catch(err => {
-						console.log(err)
+						alert("retry");
 					});
 				}
 			},
@@ -335,7 +335,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 			addComment() {
@@ -350,7 +350,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 
 			},
@@ -387,7 +387,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 			queryUserBlogs() {
@@ -402,7 +402,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 			queryRank() {
@@ -416,7 +416,7 @@
 							alert(res.data.msg);
 						}
 					}).catch(err => {
-					console.log(err)
+					alert("retry");
 				});
 			},
 		}
