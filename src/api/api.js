@@ -4,7 +4,7 @@ import Qs from 'qs'
 export const GET = "get";
 export const POST = "post";
 
-export const baseUrl = "http://mini-blog.com:8090";
+export const baseUrl = "http://mini-blog.com:31380";
 
 // 登陆相关
 export const Login = (user, pwd) => {

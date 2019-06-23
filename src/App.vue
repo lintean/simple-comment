@@ -144,13 +144,10 @@
 		},
 		data() {
 			return {
-				blogs: [
-				],
-				userBlogs: [
-				],
+				blogs: [],
+				userBlogs: [],
 				moment,
-				rank: [
-				],
+				rank: [],
 				// 状态参数
 				isLogin: false,
 				userOnline: "lintean",
@@ -227,10 +224,13 @@
 					if (res.data.code === 0) {
 						_this.userOnline = res.data.userName;
 						_this.isLogin = true;
-					} else {
+					} else
+					if (res.data.code === 403) {
 						_this.isLogin = false;
+					} else {
+						alert(res.data.msg);
 					}
-					
+
 					_this.reset();
 
 				}).catch(err => {
@@ -255,6 +255,8 @@
 							_this.reset();
 
 							this.loginData.visible = false;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -270,6 +272,8 @@
 							_this.reset();
 
 							this.registerData.visible = false;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -281,6 +285,9 @@
 					res => {
 						if (res.data.code === 0) {
 							_this.isLogin = false;
+							_this.userBlogs = [];
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -295,6 +302,8 @@
 							if (res.data.code === 0) {
 								_this.reset();
 								_this.blogData.visible = false;
+							} else {
+								alert(res.data.msg);
 							}
 						}).catch(err => {
 						console.log(err)
@@ -307,6 +316,8 @@
 							if (res.data.code === 0) {
 								_this.reset();
 								_this.blogData.visible = false;
+							} else {
+								alert(res.data.msg);
 							}
 						}).catch(err => {
 						console.log(err)
@@ -320,6 +331,8 @@
 						if (res.data.code === 0) {
 							_this.reset();
 							_this.deleteBlogData.visible = false;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -333,6 +346,8 @@
 						if (res.data.code === 0) {
 							_this.reset();
 							_this.commentData.visible = false;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -368,6 +383,8 @@
 					res => {
 						if (res.data.code === 0) {
 							_this.blogs = res.data.data.data;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -375,12 +392,14 @@
 			},
 			queryUserBlogs() {
 				if (!this.isLogin) return;
-				
+
 				var _this = this;
 				Api.UserBlogs(this.userOnline).then(
 					res => {
 						if (res.data.code === 0) {
 							_this.userBlogs = res.data.data.data;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)
@@ -393,6 +412,8 @@
 						if (res.data.code === 0) {
 							console.log(res.data);
 							_this.rank = res.data.data.data;
+						} else {
+							alert(res.data.msg);
 						}
 					}).catch(err => {
 					console.log(err)

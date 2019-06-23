@@ -72,6 +72,9 @@
 											_this.comment = res.data.data.data;
 											_this.showCm = true;
 										}
+										else{
+											alert(res.data.msg);
+										}
 									}).catch(err => {
 									console.log(err)
 								});

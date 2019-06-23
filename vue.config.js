@@ -4,7 +4,7 @@ module.exports = {
 		devServer: {
 			proxy: {
 				'*': {
-					target: 'http://mini-blog.com:8090', //设置你调用的接口域名和端口号 别忘了加http
+					target: 'http://mini-blog.com:31380', //设置你调用的接口域名和端口号 别忘了加http
 					changeOrigin: true, //这里设置是否跨域
 					secure: false,
 					onProxyRes: function(proxyRes, req, res) {
