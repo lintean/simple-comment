@@ -71,14 +71,11 @@ export const AllBlogs = () => {
 	})
 };
 
-export const UserBlogs = (user) => {
+export const UserBlogs = () => {
 	return new axios({
 		url: baseUrl + '/blog/user/',
 		method: GET,
-		withCredentials: true,
-		headers: {
-			'End-User': user
-		}
+		withCredentials: true
 	})
 };
 
@@ -184,10 +181,13 @@ export const AddComment = (blogid, author, content) => {
 };
 
 // 排名相关
-export const Rank = () => {
+export const Rank = (user) => {
 	return new axios({
 		url: baseUrl + '/rank/',
 		method: GET,
 		withCredentials: true,
+		headers: {
+			'end-user': user
+		}
 	})
 };

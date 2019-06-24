@@ -394,7 +394,7 @@
 				if (!this.isLogin) return;
 
 				var _this = this;
-				Api.UserBlogs(this.userOnline).then(
+				Api.UserBlogs().then(
 					res => {
 						if (res.data.code === 0) {
 							_this.userBlogs = res.data.data.data;
@@ -407,7 +407,11 @@
 			},
 			queryRank() {
 				var _this = this;
-				Api.Rank().then(
+				var user;
+				if (this.isLogin) user = this.userOnline;
+				else user = "None";
+				
+				Api.Rank(user).then(
 					res => {
 						if (res.data.code === 0) {
 							console.log(res.data);
